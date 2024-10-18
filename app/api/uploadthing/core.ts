@@ -14,8 +14,10 @@ export const ourFileRouter = {
       const user = await getUser();
 
       // If you throw, the user will not be able to upload
-      if (!user || user.email !== "jan@alenix.de")
-        throw new UploadThingError("Unauthorized");
+      // Temporarily allowing all users to access the function
+      // if (!user || user.email !== "vikaswakdepc@gmail.com")
+      //   throw new UploadThingError("Unauthorized");
+      if (!user) throw new UploadThingError("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.id };
@@ -37,8 +39,10 @@ export const ourFileRouter = {
       const user = await getUser();
 
       // If you throw, the user will not be able to upload
-      if (!user || user.email !== "jan@alenix.de")
-        throw new UploadThingError("Unauthorized");
+      // Temporarily allowing all users to access the function
+      // if (!user || user.email !== "vikaswakdepc@gmail.com")
+      //   throw new UploadThingError("Unauthorized");
+      if (!user) throw new UploadThingError("Unauthorized");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.id };

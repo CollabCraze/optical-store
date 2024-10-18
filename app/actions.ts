@@ -15,9 +15,13 @@ export async function createProduct(prevState: unknown, formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user) {
     return redirect("/");
   }
+
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
 
   const submission = parseWithZod(formData, {
     schema: productSchema,
@@ -50,9 +54,13 @@ export async function editProduct(prevState: any, formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user) {
     return redirect("/");
   }
+
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
 
   const submission = parseWithZod(formData, {
     schema: productSchema,
@@ -89,9 +97,13 @@ export async function deleteProduct(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user) {
     return redirect("/");
   }
+
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
 
   await prisma.product.delete({
     where: {
@@ -106,9 +118,13 @@ export async function createBanner(prevState: any, formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user) {
     return redirect("/");
   }
+
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
 
   const submission = parseWithZod(formData, {
     schema: bannerSchema,
@@ -132,9 +148,13 @@ export async function deleteBanner(formData: FormData) {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  if (!user) {
     return redirect("/");
   }
+
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
 
   await prisma.banner.delete({
     where: {
@@ -267,11 +287,11 @@ export async function checkOut() {
       success_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/success"
-          : "https://shoe-marshal.vercel.app/payment/success",
+          : "https://optical-store.vercel.app/payment/success",
       cancel_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/cancel"
-          : "https://shoe-marshal.vercel.app/payment/cancel",
+          : "https://optical-store.vercel.app/payment/cancel",
       metadata: {
         userId: user.id,
       },

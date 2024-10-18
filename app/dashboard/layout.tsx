@@ -25,7 +25,12 @@ export default async function DashboardLayout({
   const { getUser } = getKindeServerSession();
   const user = await getUser();
 
-  if (!user || user.email !== "jan@alenix.de") {
+  // Temporarily allowing all users to access the dashboard
+  // TODO: Implement proper access control in the future
+  // if (!user || user.email !== "vikaswakdepc@gmail.com") {
+  //   return redirect("/");
+  // }
+  if (!user) {
     return redirect("/");
   }
   return (
