@@ -287,11 +287,11 @@ export async function checkOut() {
       success_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/success"
-          : "https://optical-store.vercel.app/payment/success",
+          : "https://optical-store-azure.vercel.app/payment/success",
       cancel_url:
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000/payment/cancel"
-          : "https://optical-store.vercel.app/payment/cancel",
+          : "https://optical-store-azure.vercel.app/payment/cancel",
       metadata: {
         userId: user.id,
       },
